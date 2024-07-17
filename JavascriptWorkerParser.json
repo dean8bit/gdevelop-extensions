@@ -1,0 +1,73 @@
+{
+  "author": "",
+  "category": "",
+  "extensionNamespace": "",
+  "fullName": "",
+  "helpPath": "",
+  "iconUrl": "",
+  "name": "JavascriptWorkerParser",
+  "previewIconUrl": "",
+  "shortDescription": "",
+  "version": "",
+  "description": [
+    "Parse Javascript in a worker",
+    "",
+    "const runtimeGame = runtimeScene.getGame();",
+    "runtimeGame.worker.onmessage = (event) => {",
+    "        if (event.data.toString().includes(\"TRYERROR:\")) console.log(event.data);",
+    "        else if (event.data.toString().includes(\"INSTRUCTION:\")) console.log(event.data);",
+    "        else console.log(event.data);",
+    "    };",
+    "runtimeGame.worker.postMessage(\"const header = [1,2,3,4];console.log(header);\")"
+  ],
+  "tags": [],
+  "authorIds": [],
+  "dependencies": [],
+  "globalVariables": [],
+  "sceneVariables": [],
+  "eventsFunctions": [
+    {
+      "fullName": "",
+      "functionType": "Action",
+      "name": "InitialiseWorker",
+      "sentence": "",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const runtimeGame = runtimeScene.getGame();",
+            "if (window.Worker) {",
+            "    const code = () => {",
+            "        onmessage = (e) => {",
+            "            try {",
+            "                eval(e.data);",
+            "            } catch (e) {",
+            "                postMessage(\"TRYERROR: \" + e.stack);",
+            "            }",
+            "        };",
+            "    };",
+            "",
+            "    const compiled = \"'use strict';(\" + code.toString() + \")();\";",
+            "    const blob = new Blob([compiled]);",
+            "    const blobURL = window.URL.createObjectURL(blob);",
+            "    const worker = new Worker(blobURL);",
+            "    worker.onmessage = (event) => {",
+            "        if (event.data.toString().includes(\"TRYERROR:\")) console.log(event.data);",
+            "        else if (event.data.toString().includes(\"INSTRUCTION:\")) console.log(event.data);",
+            "        else console.log(event.data);",
+            "    };",
+            "    runtimeGame.worker = worker;",
+            "}"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    }
+  ],
+  "eventsBasedBehaviors": [],
+  "eventsBasedObjects": []
+}

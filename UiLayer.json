@@ -1,0 +1,44 @@
+{
+  "author": "",
+  "category": "",
+  "extensionNamespace": "",
+  "fullName": "",
+  "helpPath": "",
+  "iconUrl": "",
+  "name": "UiLayer",
+  "previewIconUrl": "",
+  "shortDescription": "",
+  "version": "",
+  "description": "document.getElementById('ui');",
+  "tags": [],
+  "authorIds": [],
+  "dependencies": [],
+  "globalVariables": [],
+  "sceneVariables": [],
+  "eventsFunctions": [
+    {
+      "fullName": "",
+      "functionType": "Action",
+      "name": "InitialiseUILayer",
+      "sentence": "",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const uiLayer = document.createElement(\"div\");",
+            "uiLayer.style.cssText = \"position:absolute;width:25%;height:100%;z-index:100;background:#000;\";",
+            "uiLayer.id = \"ui\";",
+            "document.body.appendChild(uiLayer);"
+          ],
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    }
+  ],
+  "eventsBasedBehaviors": [],
+  "eventsBasedObjects": []
+}
