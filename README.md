@@ -1,7 +1,7 @@
 A repository for my GDevelop extensions
 
 # CPU Extension
-A CPU Emulator with various instruction sets, extensible instrution sets. must be ineracted with in javascript code blocks. use with the UILayer to get a html multiline text input
+A CPU Emulator with various instruction sets, extensible instrution sets. must be interacted with in javascript code blocks. use with the UILayer to get a html multiline text input
 
 1. Create an 'at the beginning of the scene' and add the InitCPU action
 2. this binds the cpu to the runtimeGame object
@@ -41,7 +41,7 @@ cpuInstance.memory.setAt(1, 12345)
 ```
 
 # JavaScript Worker Parser
-A Isolated Worker for executing user entered javascript in a eval() function. must be ineracted with in javascript code blocks. use with the UILayer to get a html multiline text input. 
+A Isolated Worker for executing user entered javascript in a eval() function. must be interacted with in javascript code blocks. use with the UILayer to get a html multiline text input. 
 
 1. Create an 'at the beginning of the scene' condition and add the InitialiseWorker action
 2. this binds the worker object to the runtimeGame object
