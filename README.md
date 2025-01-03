@@ -71,3 +71,11 @@ Creates a div in the html body floating above the game window, for inserting htm
 const ui = document.getElementById('ui');
 // add elements to ui, alter style, etc
 ```
+
+# MobileConsole
+Added two options for a browser console for browsers that lack a console or dev tools (mobile)
+
+1. https://github.com/liriliri/eruda
+2. https://github.com/c-kick/mobileConsole
+
+To create create a "At Beginning of Scene" condition and add the CreateEruda or CreateMobileConsole actions. these should only be called once, CreateEruda will handle being called multiple times and ignore, CreateMobileConsole will need to be managed yourself.
